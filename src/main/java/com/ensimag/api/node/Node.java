@@ -16,7 +16,7 @@ public class Node implements INode<MessageType> {
 	
 	public long getId() throws RemoteException {
 		// TODO Auto-generated method stub
-		return 1;
+		return 100;
 	}
 
 	public void onMessage(MessageType message) throws RemoteException {
