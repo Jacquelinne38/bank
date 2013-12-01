@@ -3,45 +3,60 @@ package com.ensimag.api.bank;
 import com.ensimag.api.message.EnumMessageType;
 
 public class BankMessage implements IBankMessage {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private IBankAction _bankAction;
+	private long _messageId;
+	private long _originalBankSenderId;
+	private long _senderId;
+	private long _destinationBank;
+	private EnumMessageType _messageType;
+	
+	public BankMessage(long messageId, IBankAction action, long originalBankSenderId, long senderId, long destinationBank, EnumMessageType messageType) {
+		super();
+		_bankAction = action;
+		_originalBankSenderId = originalBankSenderId;
+		_senderId = senderId;
+		_destinationBank = destinationBank;
+		_messageType = messageType;
+		_messageId = messageId;
+	}
 
 	public IBankAction getAction() {
-		// TODO Auto-generated method stub
-		return null;
+		return _bankAction;
 	}
 	
 	public IBankMessage clone() {
-		// TODO Auto-generated method stub
-		return null;
+		IBankMessage tmp = new BankMessage(getMessageId(), getAction(), getOriginalBankSenderId(), getSenderId(), getDestinationBankId(), getMessageType());
+		return tmp;
 	}
 
 	public long getMessageId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return _messageId;
 	}
 
 	public long getOriginalBankSenderId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return _originalBankSenderId;
 	}
 
 	public long getSenderId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return _senderId;
 	}
 
 	public void setSenderId(long senderId) {
-		// TODO Auto-generated method stub
+		_senderId = senderId;
 		
 	}
 
 	public long getDestinationBankId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return _destinationBank;
 	}
 
 	public EnumMessageType getMessageType() {
-		// TODO Auto-generated method stub
-		return null;
+		return _messageType;
 	}
 
 }

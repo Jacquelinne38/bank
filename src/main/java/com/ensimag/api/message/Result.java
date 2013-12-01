@@ -2,17 +2,28 @@ package com.ensimag.api.message;
 
 import java.io.Serializable;
 
-public class Result implements IResult{
 
+public class Result implements IResult<Serializable> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Serializable _data;
+	private long _messageId;
+	
+	public Result(Serializable serializable, long messageId) {
+		super();
+		_data = serializable;
+		_messageId = messageId;
+	}
 	
 	public long getMessageId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return _messageId;
 	}
 
 	public Serializable getData() {
-		// TODO Auto-generated method stub
-		return null;
+		return _data;
 	}
 
 }
